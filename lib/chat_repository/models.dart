@@ -2,8 +2,9 @@ class ChatModel {
   List<UserModel> members;
   MessageModel lastMessage;
   DateTime createdTime;
+  String? status = '';
 
-  ChatModel(this.members, this.lastMessage, this.createdTime);
+  ChatModel(this.members, this.lastMessage, this.createdTime, [ this.status]);
 }
 
 class UserModel {
