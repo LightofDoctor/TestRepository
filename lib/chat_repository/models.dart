@@ -1,10 +1,13 @@
+import 'dart:ui';
+
 class ChatModel {
   List<UserModel> members;
   MessageModel lastMessage;
   DateTime createdTime;
-  String? status = '';
+  ColorMessage? colorMessage;
+  DataField? dataField;
 
-  ChatModel(this.members, this.lastMessage, this.createdTime, [ this.status]);
+  ChatModel(this.members, this.lastMessage, this.createdTime, this.dataField, [this.colorMessage] );
 }
 
 class UserModel {
@@ -19,4 +22,14 @@ class MessageModel {
   UserModel author;
 
   MessageModel(this.lastMessage, this.author);
+}
+class ColorMessage{
+  String textMessage;
+  Color color;
+  ColorMessage( this.textMessage,  this.color);
+}
+class DataField {
+  String? text;
+  int? number;
+  DataField({this.text,this.number});
 }

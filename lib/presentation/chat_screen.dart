@@ -23,12 +23,13 @@ class _FirstScreenState extends State<FirstScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+
       appBar: PreferredSize(
-        preferredSize: Size.fromHeight(150),
+        preferredSize: Size.fromHeight(100),
         child: AppBar(
-            backgroundColor: Colors.indigo,
+            backgroundColor: Colors.lightBlue.shade500,
             bottom: PreferredSize(
-              preferredSize: Size.fromHeight(50),
+              preferredSize: Size.fromHeight(100),
               child: Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
@@ -43,6 +44,7 @@ class _FirstScreenState extends State<FirstScreen> {
                     children: [
                       Text(
                         'Chat',
+                        style: TextStyle(fontSize: 30, fontFamily: 'IndieFlower'),
                       )
                     ],
                   ),
@@ -51,49 +53,136 @@ class _FirstScreenState extends State<FirstScreen> {
                     children: [
                       IconButton(onPressed: () {}, icon: Icon(Icons.add))
                     ],
-                  )
+                  ),
                 ],
               ),
-            )),
+
+            )
+        ),
       ),
-      body: BlocBuilder(
-        bloc: firstScreenBloc,
-        builder: (BuildContext context, state) {
-          if (state is LoadedChatState) {
-            final chats = state.getAllChats;
-            return ListView.builder(
-                itemCount: chats.length,
-                itemBuilder: (contex, index) {
-                  final chat = chats[index];
-                  return Row(
-                    children: [
-                      Column(
-                        children: [Image.asset(chat.members[0].avatarPath)],
-                      ),
-                      Column(
+      body:
+      Column(
+        children: [
+          Row(
+            children: [
+              Flexible(
+                child: Padding(
+                  padding: EdgeInsets.all(16.0),
+                  child: TextField(
+                    decoration: InputDecoration(
+                      border: OutlineInputBorder(borderSide: BorderSide(color: Colors.black)),
+                      prefixIcon: Icon(Icons.search),
+                      contentPadding: EdgeInsets.only(left: 8.0),
+                      hintText: 'Search',
+                    ),
+                  ),
+                ),
+              ),
+              Container(
+                decoration: BoxDecoration(
+                  border: Border.all(color: Colors.red),
+                  borderRadius: BorderRadius.circular(8.0),
+                ),
+                child: IconButton(
+                  onPressed: () {
+                    // Perform search action
+                  },
+                  icon: Icon(
+                    Icons.menu,
+                    color: Colors.red,
+                  ),
+                ),
+              ),
+            ],
+          ),
+
+          // Rest of the widget tree
+
+
+          Expanded(
+            child: BlocBuilder(
+            bloc: firstScreenBloc,
+            builder: (BuildContext context, state) {
+              if (state is LoadedChatState) {
+                final chats = state.getAllChats;
+                return
+                  ListView.builder(
+                    itemCount: chats.length,
+                    itemBuilder: (contex, index) {
+                      final chat = chats[index];
+                      return Row(
                         children: [
-                          Row(
-                            children: [Text(chat.members[0].name)],
+                          Column(
+                            children: [Image.asset(chat.members[0].avatarPath)],
                           ),
-                          Row(
-                            children: [Text(chat.lastMessage.lastMessage)],
-                          )
+                          SizedBox(width: 20,),
+                          Column(
+                            children: [
+                              Row(
+
+                                children: [Text(chat.members[0].name,style: TextStyle(fontSize: 20),)],
+                              ),
+                              Row(
+                                children: [Text(chat.lastMessage.lastMessage,
+
+                                  style: TextStyle(fontSize: 17,
+                                  )),
+                                ],
+                              ),
+                              Row(children: [
+                                Text(chat.colorMessage!.textMessage,style: TextStyle(color: chat.colorMessage!.color,
+                                fontSize: 26),),
+                              ],)
+                            ],
+                          ),
+
+                          Column(
+
+                            children: [Text(chat.createdTime.day.toString())],
+                          ),
+
                         ],
-                      ),
-                      SizedBox(
-                        width: 2,
-                      ),
-                      Column(
-                        children: [Text(chat.createdTime.day.toString())],
-                      )
-                    ],
-                  );
-                });
-          } else {
-            return CircularProgressIndicator();
-          }
-        },
+                      );
+                    });
+              } else {
+                return CircularProgressIndicator();
+              }
+            },
+        ),
+          ),
+        ]
       ),
+      floatingActionButton: _FloatingAtionButton()
+
     );
+
+
   }
+}
+Widget _FloatingAtionButton(){
+  return Column(
+
+    mainAxisAlignment: MainAxisAlignment.end,
+    children: [
+      Row(
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        children: [
+          Column(children: [
+            FloatingActionButton(onPressed: (){},
+              child: Icon(Icons.chat),),
+
+          ],),
+          Column(children: [
+            FloatingActionButton(onPressed:(){},
+              child: Icon(Icons.notifications),)
+          ],),
+          Column(
+            children: [
+              FloatingActionButton(onPressed: (){},
+                child: Icon(Icons.more_vert),)
+            ],
+          )
+        ],)
+    ],
+  );
 }
