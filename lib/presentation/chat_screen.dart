@@ -111,11 +111,12 @@ class _FirstScreenState extends State<FirstScreen> {
                     itemBuilder: (contex, index) {
                       final chat = chats[index];
                       return Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           Column(
                             children: [Image.asset(chat.members[0].avatarPath)],
                           ),
-                          SizedBox(width: 20,),
+
                           Column(
                             children: [
                               Row(
@@ -138,7 +139,7 @@ class _FirstScreenState extends State<FirstScreen> {
 
                           Column(
 
-                            children: [Text(chat.createdTime.day.toString())],
+                            children: [Text(chat.dataField!.text.toString())],
                           ),
 
                         ],
@@ -160,29 +161,48 @@ class _FirstScreenState extends State<FirstScreen> {
   }
 }
 Widget _FloatingAtionButton(){
-  return Column(
+  return Stack(
+    children:[ Column(
 
-    mainAxisAlignment: MainAxisAlignment.end,
-    children: [
-      Row(
-        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-        children: [
-          Column(children: [
-            FloatingActionButton(onPressed: (){},
-              child: Icon(Icons.chat),),
-
-          ],),
-          Column(children: [
-            FloatingActionButton(onPressed:(){},
-              child: Icon(Icons.notifications),)
-          ],),
-          Column(
-            children: [
+      mainAxisAlignment: MainAxisAlignment.end,
+      children: [
+        Row(
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          children: [
+            Column(children: [
               FloatingActionButton(onPressed: (){},
-                child: Icon(Icons.more_vert),)
-            ],
-          )
-        ],)
-    ],
+
+                shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8.0),
+                side: BorderSide.none),
+
+                child: Icon(Icons.chat_sharp),),
+              Text('Chats'),
+
+            ],),
+            Column(children: [
+              FloatingActionButton(onPressed:(){},
+                shape: CircleBorder(),
+                backgroundColor: Colors.white,
+                child: Icon(Icons.notifications,
+                color: Colors.black,),),
+              Text('Notification'),
+
+            ],),
+            Column(
+              children: [
+
+                FloatingActionButton(onPressed: (){},
+                  backgroundColor: Colors.white,
+                  child: Icon(Icons.more_vert,
+                  color: Colors.black,),),
+                Text('More'),
+              ],
+            )
+          ],)
+      ],
+    ),
+
+  ]
+
   );
 }

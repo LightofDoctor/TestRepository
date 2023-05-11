@@ -53,6 +53,13 @@ class ChatRepository {
 
         ColorMessage('Help Req', Colors.yellow),
       ),
+      ChatModel(
+        [UserModel('Julie McAndrew', 'assets/icons/icons8-butterfly-64.png')],
+        MessageModel('You: Thanks Julie', UserModel('Julie McAndrew', 'assets/icons/icons8-butterfly-64.png')),
+        DateTime.now(),DataField(text: '14.48'),
+
+        ColorMessage('Help Req', Colors.yellow),
+      ),
 
 
     ];
