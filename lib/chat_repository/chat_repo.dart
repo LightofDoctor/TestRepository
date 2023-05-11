@@ -41,8 +41,8 @@ class ChatRepository {
     )
       ),
       ChatModel(
-          [UserModel('Julie McAndrew', 'assets')],
-          MessageModel('You: Thanks Julie', UserModel('Julie McAndrew', 'assets/icons/icons8-butterfly-96.png')),
+          [UserModel('Julie McAndrew', 'assets/icons/icons8-butterfly-64.png')],
+          MessageModel('You: Thanks Julie', UserModel('Julie McAndrew', 'assets/icons/icons8-butterfly-64.png')),
           DateTime.now().subtract(Duration(days: 3),
           )
       ),

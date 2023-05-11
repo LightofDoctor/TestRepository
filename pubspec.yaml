@@ -37,6 +37,7 @@ dependencies:
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^1.0.2
   flutter_bloc: ^8.1.1
+  bloc_provider: ^1.0.0
   bloc: ^8.1.0
 
 dev_dependencies:
@@ -68,6 +69,7 @@ flutter:
     - assets/icons/icons8-butterfly-64 (1).png
     - assets/icons/icons8-butterfly-64 (2).png
     - assets/icons/icons8-leaf-fluttering-in-wind-96.png
+    - assets/icons/icons8-butterfly-96.png
 
     # - images/a_dot_ham.jpeg
 
