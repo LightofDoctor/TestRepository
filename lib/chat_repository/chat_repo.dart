@@ -20,23 +20,22 @@ class ChatRepository {
           ),
         ),
         DateTime.now(),
-        DataField(text: 'Yesterday'),
-        ColorMessage('', Colors.white),
-        BackGroundColor(Colors.transparent),
+        DateField(text: 'Yesterday'),
       ),
       ChatModel(
         [
-          UserModel('Daren Swinney,Lan...',
-              'assets/icons/icons8-butterfly-64 (1).png')
+          UserModel(
+              'Daren Swinney', 'assets/icons/icons8-butterfly-64 (1).png'),
+          UserModel('Lan...', 'assets/icons/icons8-butterfly-48.png'),
+          UserModel('Dani', 'assets/icons/icons8-butterfly-96.png'),
         ],
         MessageModel(
             'Darren: Perhaps if there was some...',
             UserModel(
                 'Daren Swinney', 'assets/icons/icons8-butterfly-64 (1).png')),
         DateTime.now(),
-        DataField(text: '13.24'),
-        ColorMessage('Chalenge', Colors.white),
-        BackGroundColor(Colors.pinkAccent),
+        DateField(text: '13.24'),
+        ColorMessage(Colors.pinkAccent, Colors.white, 'Chalenge'),
       ),
       ChatModel(
         [UserModel('Alexandr Murphy', 'assets/icons/icons8-butterfly-48.png')],
@@ -45,9 +44,12 @@ class ChatRepository {
             UserModel(
                 'Alexandr Murphy', 'assets/icons/icons8-butterfly-48.png')),
         DateTime.now(),
-        DataField(text: 'Mon'),
-        ColorMessage('Help Req', Colors.black),
-        BackGroundColor(Colors.yellow),
+        DateField(text: 'Mon'),
+        ColorMessage(
+          Colors.yellow,
+          Colors.black,
+          'Help Req',
+        ),
       ),
       ChatModel(
         [
@@ -59,9 +61,7 @@ class ChatRepository {
             UserModel(
                 'Stephane Jones', 'assets/icons/icons8-butterfly-64 (2).png')),
         DateTime.now(),
-        DataField(text: '14.48'),
-        ColorMessage('', Colors.white),
-        BackGroundColor(Colors.transparent),
+        DateField(text: '14.48'),
       ),
       ChatModel(
         [UserModel('Julie McAndrew', 'assets/icons/icons8-butterfly-64.png')],
@@ -70,17 +70,18 @@ class ChatRepository {
             UserModel(
                 'Julie McAndrew', 'assets/icons/icons8-butterfly-64.png')),
         DateTime.now(),
-        DataField(text: '14.48'),
-        ColorMessage('Engagement Partner', Colors.white),
-        BackGroundColor(Colors.black38),
+        DateField(text: '14.48'),
+        ColorMessage(
+          Colors.black38,
+          Colors.white,
+          'Engagement Partner',
+        ),
       ),
       ChatModel(
         [UserModel('Dilan Edmonds', 'assets/icons/icons8-butterfly-64.png')],
         MessageModel('', UserModel('', '')),
         DateTime.now(),
-        DataField(text: '14.48'),
-        ColorMessage('', Colors.white),
-        BackGroundColor(Colors.transparent),
+        DateField(text: '14.48'),
       ),
     ];
   }

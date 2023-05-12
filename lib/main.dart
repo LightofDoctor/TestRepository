@@ -17,7 +17,12 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return BlocProvider(create: (context)=> FirstScreenBloc(GetAllChatsUseCase(ChatRepository())),
       child:  MaterialApp(
-        home: FirstScreen(),
+        theme: ThemeData(
+          //brightness: Brightness.dark,
+          primaryColor: Color(0xFF0a2a3f),
+          //fontFamily: 'Georgia',
+        ),
+        home: ChatScreen(),
       ),
 
 

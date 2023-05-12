@@ -39,6 +39,7 @@ dependencies:
   flutter_bloc: ^8.1.1
   bloc_provider: ^1.0.0
   bloc: ^8.1.0
+  flutter_svg: ^1.1.6
 
 dev_dependencies:
   flutter_test:
@@ -69,7 +70,7 @@ flutter:
     - assets/icons/icons8-butterfly-64 (1).png
     - assets/icons/icons8-butterfly-64 (2).png
     - assets/icons/icons8-leaf-fluttering-in-wind-96.png
-    - assets/icons/icons8-butterfly-96.png
+    - assets/icons/
 
     # - images/a_dot_ham.jpeg
 
