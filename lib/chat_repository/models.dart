@@ -1,13 +1,17 @@
 import 'dart:ui';
 
+import 'package:flutter/material.dart';
+
 class ChatModel {
   List<UserModel> members;
   MessageModel lastMessage;
   DateTime createdTime;
   ColorMessage? colorMessage;
   DataField? dataField;
+  BackGroundColor? backGroundColor;
 
-  ChatModel(this.members, this.lastMessage, this.createdTime, this.dataField, [this.colorMessage] );
+  ChatModel(this.members, this.lastMessage, this.createdTime, this.dataField, [this.colorMessage,this.backGroundColor] );
+
 }
 
 class UserModel {
@@ -33,3 +37,9 @@ class DataField {
   int? number;
   DataField({this.text,this.number});
 }
+
+class BackGroundColor{
+  Color color;
+  BackGroundColor(this.color);
+}
+
